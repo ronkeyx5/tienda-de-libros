@@ -1,0 +1,10 @@
+";
+
+        $sql = "SELECT * FROM clientes WHERE id='$usuario'";
+        $res = mysqli_query($con, $sql);
+        $num = mysqli_num_rows($res);
+
+        $userName = mysqli_result($res, 0, "nombre");
+
+        echo "<td><a>" . $usuario . "</a></td>
+        <td><a>" . $userName . "</a></td>
