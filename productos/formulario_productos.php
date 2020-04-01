@@ -85,13 +85,24 @@ else {
             return false;
         }
 
+        function validarAutor() {
+            var autor = $('#autor').val();
+
+            if (autor.length > 0) {
+                console.log("Autor OK");
+                return true;
+            }
+            console.log("Error en autor");
+            return false;
+        }
+
         function validacion() {
             var form = document.getElementById("myform");
             var fd = new FormData(form);
 
             console.log("F\n");
 
-            if (validarNombre() && validarCodigo() && validarDescripcion() && validarCostoStock() && validarArchivo()) {
+            if (validarNombre() && validarAutor() && validarCodigo() && validarDescripcion() && validarCostoStock() && validarArchivo()) {
 
                 $.ajaxSetup({
                     async: true
@@ -215,11 +226,12 @@ else {
                 <div id="regBox">
                     <h1>Registro de productos</h1>
                     <input placeholder="Nombre" type="text" name="nombre" id="nombre" required />
-                    <input placeholder="Codigo" type="text" name="codigo" id="codigo" required /><br>
-                    <input placeholder="Descripcion" type="text" name="descripcion" id="descripcion" required />
-                    <input placeholder="$ Costo" type="number" name="costo" id="costo" required /><br>
-                    <input placeholder="Stock" type="number" name="stock" id="stock" required />
-                    <input type="file" id="archivo" name="archivo" required><br>
+                    <input placeholder="Autor" type="text" name="autor" id="autor" required /><br>
+                    <input placeholder="Codigo" type="text" name="codigo" id="codigo" required />
+                    <input placeholder="Descripcion" type="text" name="descripcion" id="descripcion" required /><br>
+                    <input placeholder="$ Costo" type="number" name="costo" id="costo" required />
+                    <input placeholder="Stock" type="number" name="stock" id="stock" required /><br>
+                    <input type="file" id="archivo" name="archivo" required>
 
                     <div>
                         <input onclick="validacion(); return false;" class="btn btn-success" type="submit"

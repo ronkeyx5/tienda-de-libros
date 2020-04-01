@@ -25,7 +25,9 @@ function generarTarjetas()
     for ($i = 0; $i < $num; $i++) {
         $id                  = mysqli_result($res, $i, "id");
         $nombre              = mysqli_result($res, $i, "nombre");
-        $descripcion         = mysqli_result($res, $i, "descripcion");
+        $autor              = mysqli_result($res, $i, "Autor");
+        $descripcion1         = mysqli_result($res, $i, "descripcion");
+        $descripcion = substr($descripcion1, 0, 200) . "...";
         $costo               = mysqli_result($res, $i, "costo");
         $archivo             = mysqli_result($res, $i, "archivo_n");
 
@@ -34,6 +36,7 @@ function generarTarjetas()
             <div><a href=\"ver_producto.php?id=".$id."&t=0\" ><img class=\"picPrev\" src=\"../productos/archivos/" . $archivo . ".jpg\" ></a></div>
             <div><a class=\"costo\" >$" . $costo . "</a></div>  
             <div><a class=\"name\">" . $nombre . "</a></div>
+            <div><a class=\"autor\">" . $autor . "</a></div><br>
             <div><a class=\"description\" >" . $descripcion . "</a></div><br><br>
 
             <a class=\"agregarButton\" onclick=\"agregarAlCarrito(" . $id . "); return false; \" >Agregar al carrito</a>
@@ -78,6 +81,13 @@ function generarTarjetas()
             margin: auto;
             font-weight: bold;
             font-size: 20px;
+        }
+
+        .autor {
+            margin: auto;
+            font-weight: bold;
+            font-size: 17px;
+            color: #013220;
         }
 
         .description {

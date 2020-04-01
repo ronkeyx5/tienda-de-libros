@@ -31,11 +31,12 @@ $codigo = $_POST['codigo'];
 $descripcion = $_POST['descripcion'];
 $costo = $_POST['costo'];
 $stock = $_POST['stock'];
+$autor = $_POST['autor'];
 
 $archivo = $file_name;
 $archivo_n = $file_enc;
 
-$sql = "INSERT INTO productos VALUES (0, '$nombre', '$codigo', '$descripcion', $costo, $stock, '$archivo_n', '$archivo', 1, 0)";
+$sql = "INSERT INTO productos VALUES (0, '$nombre', '$autor','$codigo', '$descripcion', $costo, $stock, '$archivo_n', '$archivo', 1, 0)";
 $res = mysqli_query($con, $sql);
 
 echo "<br> $nombre $codigo -- $archivo";

@@ -22,6 +22,7 @@ if ($num != 0) {
 
     $id             = mysqli_result($res, 0, "id");
     $nombre         = mysqli_result($res, 0, "nombre");
+    $autor         = mysqli_result($res, 0, "Autor");
     $codigo      = mysqli_result($res, 0, "codigo");
     $descripcion         = mysqli_result($res, 0, "descripcion");
     $stock            = mysqli_result($res, 0, "stock");
@@ -213,6 +214,7 @@ function mysqli_result($res, $row, $field = 0)
                         console.log("YES");
 
                         var varNombre = $("#nombre").val(),
+                            varAutor = $("#autor").val(),
                             varCodigo = $("#codigo").val(),
                             varDescripcion = $("#descripcion").val(),
                             varStock = $("#stock").val(),
@@ -224,6 +226,7 @@ function mysqli_result($res, $row, $field = 0)
                         myFormData.append('archivo', document.getElementById("archivo").files[0]);
                         myFormData.append('costo', varCosto);
                         myFormData.append('nombre', varNombre);
+                        myFormData.append('autor', varAutor);
                         myFormData.append('codigo', varCodigo);
                         myFormData.append('descripcion', varDescripcion);
                         myFormData.append('stock', varStock);
@@ -263,6 +266,7 @@ function mysqli_result($res, $row, $field = 0)
                         console.log("YES");
 
                         var varNombre = $("#nombre").val(),
+                            varAutor = $("#autor").val(),
                             varCodigo = $("#codigo").val(),
                             varDescripcion = $("#descripcion").val(),
                             varStock = $("#stock").val(),
@@ -277,6 +281,7 @@ function mysqli_result($res, $row, $field = 0)
                             data: {
                                 'check': varCheck,
                                 'nombre': varNombre,
+                                'autor': varAutor,
                                 'codigo': varCodigo,
                                 'descripcion': varDescripcion,
                                 'costo': varCosto,
@@ -312,6 +317,7 @@ function mysqli_result($res, $row, $field = 0)
         <input type="file" id="archivo" onchange="changeCheck(); fileCheck();" name="archivo"><br><br>
         <a class="label">ID: </a><a id="id" name="id" value="<?php echo $id; ?>"><?php echo $id; ?></a><br><br>
         <a class="label">Nombre </a><input id="nombre" onchange="changeCheck();" name="nombre" class="dato" value="<?php echo $nombre; ?>"><br><br>
+        <a class="label">Autor </a><input id="autor" onchange="changeCheck();" name="autor" class="dato" value="<?php echo $autor; ?>"><br><br>
         <a class="label">Codigo </a><input id="codigo" name="codigo" onchange="changeCheck();" class="dato" value="<?php echo $codigo; ?>"><br><br>
         <a class="label">Descripcion </a><input id="descripcion" name="descripcion" class="dato" onchange="changeCheck();" value="<?php echo $descripcion; ?>"><br><br>
         <a class="label">Stock </a><input id="stock" type="number" onchange="changeCheck();" name="stock" class="dato" value="<?php echo $stock; ?>"><br><br>

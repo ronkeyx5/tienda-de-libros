@@ -23,6 +23,7 @@ if ($num != 0) {
 
     $id             = mysqli_result($res, 0, "id");
     $nombre         = mysqli_result($res, 0, "nombre");
+    $autor         = mysqli_result($res, 0, "Autor");
     $codigo      = mysqli_result($res, 0, "codigo");
     $descripcion         = mysqli_result($res, 0, "descripcion");
     $stock            = mysqli_result($res, 0, "stock");
@@ -114,6 +115,7 @@ function mysqli_result($res, $row, $field = 0)
             <div id="container">
                 <div style="width: 100%;"><img style="margin:auto ;" src="archivos/<?php echo $archivo; ?>.jpg"></div><br><br>
                 <a class="label f">Nombre </a><a class="dato"><?php echo $nombre; ?></a><br><br>
+                <a class="label f">Autor </a><a class="dato"><?php echo $autor; ?></a><br><br>
                 <a class="label g">Codigo </a><a class="dato"><?php echo $codigo; ?></a><br><br>
                 <div style="display:inline-block;" ><a class="label f" >Descripcion </a><div style=" float:right; word-wrap: break-word; max-width: 250px;"><a class="dato"><?php echo $descripcion; ?></a></div></div><br><br>
                 <a class="label g">Stock </a><a class="dato"><?php echo $stock; ?></a><br><br>

@@ -174,7 +174,7 @@ if ($_SESSION["id"] > 0) {
         <!--  ver      -->
         <table>
             <tr>
-                <td colspan="8" style="text-align: center;"><br> Productos <br><br></td>
+                <td colspan="9" style="text-align: center;"><br> Productos <br><br></td>
             </tr>
 
             <!-- Nombres de columnas -->
@@ -182,6 +182,7 @@ if ($_SESSION["id"] > 0) {
                 <td><a>Imagen</a></td>
                 <td><a>ID</a></td>
                 <td><a>Nombre</a></td>
+                <td><a>Autor</a></td>
                 <td><a>Codigo</a></td>
                 <td><a>Descripcion</a></td>
                 <td><a>Costo</a></td>

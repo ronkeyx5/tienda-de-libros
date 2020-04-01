@@ -1,0 +1,11 @@
+carrito3 - domicilio
+carrito4 - metodo de pago
+
+carrito4 -> realizarCompra
+
+realizarCompra -> pedidos
+realizarCompra -> pedidos_productos
+realizarCompra -> direccion
+realizarCompra -> transaccion
+realizarCompra -> envio
+realizarCompra -> actualizar productos

@@ -27,7 +27,9 @@ function mostrarProductos()
 
             $nombre              = mysqli_result($res2, 0, "nombre");
             $codigo              = mysqli_result($res2, 0, "codigo");
-            $descripcion         = mysqli_result($res2, 0, "descripcion");
+            $autor              = mysqli_result($res2, $i, "Autor");
+            $descripcion1         = mysqli_result($res2, $i, "descripcion");
+            $descripcion = substr($descripcion1, 0, 200) . "...";
             $costo               = mysqli_result($res2, 0, "costo");
             $archivo             = mysqli_result($res2, 0, "archivo_n");
 
@@ -40,6 +42,7 @@ function mostrarProductos()
                     <td><img src=\"../productos/archivos/" . $archivo . ".jpg\" class=\"profile-pic\" ></td>
                     <td><a>" . $productoid . "</a></td>
                     <td style=\"word-wrap: break-word; max-width: 150px;\"><a>" . $nombre . "</a>
+                    <td style=\"word-wrap: break-word; max-width: 150px;\"><a>" . $autor . "</a>
                     <td><a>" . $codigo . "</a></td>
                     <td style=\"word-wrap: break-word; max-width: 200px;\"  ><a>" . $descripcion . "</a></td>
                     <td><a>$" . $costo . "</a></td>
@@ -70,7 +73,7 @@ function mysqli_result($res, $row, $field = 0)
 <html>
 
 <head>
-    <title>Carrito 1/2</title>
+    <title>Carrito 1/4</title>
     <style>
         .next {
             background: #21ad46;
@@ -246,7 +249,7 @@ function mysqli_result($res, $row, $field = 0)
 
 <body>
     <div class="top">
-        <h2 id="title">Carrito de compra 1/2</h2>
+        <h2 id="title">Carrito de compra 1/4</h2>
     </div><br>
     <div style=" float:left; margin-top: 20px;">
         <a class="button eliminarButton" style="float:left; padding:8px;" href="vaciar-carrito.php">Vaciar Carrito</a><br><br><br>
@@ -257,6 +260,7 @@ function mysqli_result($res, $row, $field = 0)
                 <td><a>Imagen</a></td>
                 <td><a>ID</a></td>
                 <td><a>Nombre</a></td>
+                <td><a>Autor</a></td>
                 <td><a>Codigo</a></td>
                 <td><a>Descripcion</a></td>
                 <td><a>Costo</a></td>

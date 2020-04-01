@@ -26,15 +26,18 @@ function generarTarjetas()
     for ($i = 0; $i < 5; $i++) {
         $id                  = mysqli_result($res, $i, "id");
         $nombre              = mysqli_result($res, $i, "nombre");
-        $descripcion         = mysqli_result($res, $i, "descripcion");
+        $autor              = mysqli_result($res, $i, "Autor");
+        $descripcion1         = mysqli_result($res, $i, "descripcion");
+        $descripcion = substr($descripcion1, 0, 200) . "...";
         $costo               = mysqli_result($res, $i, "costo");
         $archivo             = mysqli_result($res, $i, "archivo_n");
 
         echo "
         <article id=" . $id . " class=\"card\">
-            <div><img class=\"picPrev\" src=\"../productos/archivos/" . $archivo . ".jpg\" ></div>
+            <div><a href=\"ver_producto.php?id=".$id."&t=0\" ><img class=\"picPrev\" src=\"../productos/archivos/" . $archivo . ".jpg\" ></a></div>
             <div><a class=\"costo\" >$" . $costo . "</a></div>  
             <div><a class=\"name\">" . $nombre . "</a></div>
+            <div><a class=\"autor\">" . $autor . "</a></div><br>
             <div><a class=\"description\" >" . $descripcion . "</a></div><br><br>
 
             <a class=\"agregarButton\" onclick=\"agregarAlCarrito(" . $id . "); return false; \" >Agregar al carrito</a>
@@ -143,6 +146,13 @@ function generarTarjetas()
             margin: auto;
             font-weight: bold;
             font-size: 20px;
+        }
+
+        .autor {
+            margin: auto;
+            font-weight: bold;
+            font-size: 17px;
+            color: #013220;
         }
 
         .description {
@@ -284,19 +294,16 @@ function generarTarjetas()
         <div class="slider">
             <ul>
                 <li>
-                    <a href="ver_producto.php?id=16&t=0"><img src="../productos/slider/6de5b8affd34cbde0591078157dc4d43.jpg" alt="">
+                    <a href="ver_producto.php?id=29&t=0"><img src="../productos/slider/Inkedanillos_LI.jpg" alt="">
                 </li>
                 <li>
-                    <a href="ver_producto.php?id=2&t=0"><img src="../productos/slider/58f8f99fdd8bc06963503ef8869b6111.jpg" alt="">
+                    <a href="ver_producto.php?id=36&t=0"><img src="../productos/slider/Inkedpoe_LI.jpg" alt="">
                 </li>
                 <li>
-                    <a href="ver_producto.php?id=1&t=0"> <img src="../productos/slider/9035e3684868129e242d8d385717fb58.jpg" alt="">
+                    <a href="ver_producto.php?id=23&t=0"> <img src="../productos/slider/Inkeddivina_LI.jpg" alt="">
                 </li>
                 <li>
-                    <a href="ver_producto.php?id=17&t=0"> <img src="../productos/slider/a9e83cb755ee4e72101ac5d5dc7f31b7.jpg" alt="">
-                </li>
-                <li>
-                    <a href="ver_producto.php?id=16&t=0"> <img src="../productos/slider/5916248bf4ae989b7c741562eb6403e8.jpg" alt="">
+                    <a href="ver_producto.php?id=28&t=0"> <img src="../productos/slider/Inkedprejuicio_LI.jpg" alt="">
                 </li>
             </ul>
         </div>

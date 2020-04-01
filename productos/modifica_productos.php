@@ -33,6 +33,7 @@ if ($check) {
     /* DATOS SQL */
 
     $nombre = $_POST['nombre'];
+    $autor = $_POST['autor'];
     $codigo = $_POST['codigo'];
     $descripcion = $_POST['descripcion'];
     $stock = $_POST['stock'];
@@ -42,7 +43,7 @@ if ($check) {
     $archivo = $file_name;
     $archivo_n = $file_enc;
 
-    $sql = "UPDATE productos SET nombre='$nombre', codigo='$codigo', descripcion='$descripcion', stock='$stock', costo='$costo', archivo='$archivo', archivo_n='$archivo_n' WHERE id='$id'";
+    $sql = "UPDATE productos SET Autor='$autor', nombre='$nombre', codigo='$codigo', descripcion='$descripcion', stock='$stock', costo='$costo', archivo='$archivo', archivo_n='$archivo_n' WHERE id='$id'";
     $res = mysqli_query($con, $sql);
     echo "Finish with pic";
 }
@@ -51,13 +52,14 @@ else{
     /* DATOS SQL */
 
     $nombre = $_POST['nombre'];
+    $autor = $_POST['autor'];
     $codigo = $_POST['codigo'];
     $descripcion = $_POST['descripcion'];
     $stock = $_POST['stock'];
     $costo = $_POST['costo'];
     $id = $_POST['id'];
 
-    $sql = "UPDATE productos SET nombre='$nombre', codigo='$codigo', descripcion='$descripcion', stock='$stock', costo='$costo' WHERE id='$id'";
+    $sql = "UPDATE productos SET Autor='$autor', nombre='$nombre', codigo='$codigo', descripcion='$descripcion', stock='$stock', costo='$costo' WHERE id='$id'";
     $res = mysqli_query($con, $sql);
     echo "Finish no pic";
 }

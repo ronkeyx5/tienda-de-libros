@@ -18,8 +18,10 @@ function generarRows() {
     for ($i = 0; $i < $num; $i++){
     $id             = mysqli_result($res, $i, "id");
     $nombre         = mysqli_result($res, $i, "nombre");
+    $autor         = mysqli_result($res, $i, "Autor");
     $codigo      = mysqli_result($res, $i, "codigo");
-    $descripcion         = mysqli_result($res, $i, "descripcion");
+    $descripcion1         = mysqli_result($res, $i, "descripcion");
+    $descripcion = substr($descripcion1, 0, 200) . "...";
     $stock            = mysqli_result($res, $i, "stock");
     $costo              = mysqli_result($res, $i, "costo");
     $archivo            = mysqli_result($res, $i, "archivo_n");
@@ -29,8 +31,9 @@ function generarRows() {
         <td><img src=\"archivos/".$archivo.".jpg\" class=\"profile-pic\" ></td>
         <td><a>".$id."</a></td>
         <td style=\"word-wrap: break-word; max-width: 150px;\"><a>".$nombre."</a>
+        <td style=\"word-wrap: break-word; max-width: 150px;\"><a>".$autor."</a>
         <td><a>".$codigo."</a></td>
-        <td style=\"word-wrap: break-word; max-width: 200px;\"  ><a>".$descripcion."</a></td>
+        <td style=\"word-wrap: break-word; max-width: 200px; max-height: 300px; \"  ><a>".$descripcion."</a></td>
         <td><a>$".$costo."</a></td>
         <td><a>".$stock."</a></td>
         <td>
