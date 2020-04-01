@@ -2,9 +2,10 @@
 session_start();
 require "../conecta.php";
 
-//error_reporting(0);
-if ($_SESSION["id"] > 0) { } else {
-    header("Location: ../login.php");
+error_reporting(0);
+if ($_SESSION["id"] > 1) { } else {
+    $_SESSION["id"]=1;
+    $_SESSION["nombre"]="Invitado";
 }
 
 function mysqli_result($res, $row, $field = 0)
@@ -283,7 +284,7 @@ function generarTarjetas()
         <div class="slider">
             <ul>
                 <li>
-                    <a href="ver_producto.php?id=16&t=0"><img src="../productos/slider/6de5b8affd34cbde0591078157dc4d43.jpg" alt=""></a>
+                    <a href="ver_producto.php?id=16&t=0"><img src="../productos/slider/6de5b8affd34cbde0591078157dc4d43.jpg" alt="">
                 </li>
                 <li>
                     <a href="ver_producto.php?id=2&t=0"><img src="../productos/slider/58f8f99fdd8bc06963503ef8869b6111.jpg" alt="">

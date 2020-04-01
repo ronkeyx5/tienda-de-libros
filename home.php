@@ -2,10 +2,10 @@
 session_start();
 
 error_reporting(0);
-if($_SESSION["id"] > 0) {
+if($_SESSION["id"] > 1) {
     }
 else {
-    header("Location: login.php");
+    header("Location: clientes/home.php");
     }
 ?>
 

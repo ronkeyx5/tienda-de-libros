@@ -2,8 +2,8 @@
 require "carrito-count.php";
 
 error_reporting(0);
-if ($_SESSION["id"] > 0) { } else {
-    header("Location: login.php");
+if ($_SESSION["id"] > 1) { } else {
+    //header("Location: login.php");
 }
 ?>
 
@@ -65,6 +65,23 @@ if ($_SESSION["id"] > 0) { } else {
             background: #800000;
         }
 
+        #login {
+            text-decoration: none;
+            border-radius: 8px;
+            text-align: end;
+            border-radius: 5px;
+            color: white;
+            font-size: 15px;
+            background: #28a745;
+            padding: 8px;
+            display: inline-block;
+            float: right;
+        }
+
+        #login:hover {
+            background: #218838;
+        }
+
         #container {
             background: lightgray;
             width: 100%;
@@ -96,7 +113,7 @@ if ($_SESSION["id"] > 0) { } else {
 <body>
     <div id="container" name="container">
         <div id="topDiv">
-            <a style="font-weight: bold; font-size: 25px" >Programacion para Internet</a>
+            <a style="font-weight: bold; font-size: 25px" >Minzon</a>
             <a id="name" ><?php echo $_SESSION["nombre"]; ?></a>
         </div>
         <!-- INICIO || USUARIOS || PRODUCTOS || SALIR -->
@@ -104,9 +121,17 @@ if ($_SESSION["id"] > 0) { } else {
             <a id="backButton" href="home.php" target="_PARENT">INICIO</a>
             <a id="backButton" href="productos.php" target="_PARENT">PRODUCTOS</a>
             <a id="backButton" href="tabla-mostrar-pedidos.php" target="_PARENT">MIS PEDIDOS</a>
+            
+            <!-- BUSCAR - PENDIENTE -->
 
             <a id="carrito" name="carrito" class="backButtonf" href="carrito1.php" target="_PARENT">&zwnj;<img src="img/carrito.png" style="max-height: 25px; margin: -5px; vertical-align: bottom;" target="_PARENT"> - <?php echo carritoCount(); ?></a>
-            <a id="cerrarButton" href="../closeSession.php" target="_PARENT" >SALIR</a>
+            <?php if($_SESSION["id"] > 1) {
+                echo '<a id="cerrarButton" href="../closeSession.php" target="_PARENT" >SALIR</a>';
+            }
+            else {
+                echo '<a id="login" href="../login.php" target="_PARENT" >Login</a>';
+            }
+            ?>
         </div>
     </div>
 </body>

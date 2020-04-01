@@ -80,7 +80,7 @@ if ($_SESSION["id"] > 0) { } else {
 <body>
     <div id="container" name="container">
         <div id="topDiv">
-            <a style="font-weight: bold; font-size: 25px" >Programacion para Internet</a>
+            <a style="font-weight: bold; font-size: 25px" >Minzon</a>
             <!-- MOSTRAR PROFILE PIC EN LA BARRA -->
             <img id="profilePic" src="archivos/<?php echo $_SESSION["pic"]; ?>.jpg">
             <a id="name" ><?php echo $_SESSION["nombre"]; ?></a>
