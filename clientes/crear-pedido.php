@@ -50,7 +50,7 @@ if ($numCheck > 0) {
 }
 
 $envio = $_SESSION["id-envio"];
-$sqlEnvio = "UPDATE envio SET estado = 'Procesando' WHERE id = '$envio'";
+$sqlEnvio = "UPDATE envio SET estado = 'Procesando', id_transaccion='$transId' WHERE id = '$envio'";
 mysqli_query($con, $sqlEnvio);
 
 header ("Location: home.php?pedido=1");

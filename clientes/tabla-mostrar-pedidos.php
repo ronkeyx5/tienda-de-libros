@@ -144,12 +144,15 @@ require "lista_pedidos.php";
                 <td><a>ID</a></td>
                 <td><a>Fecha</a></td>
                 <td><a>Status</a></td>
-                <td>
-            </tr><div id="snackbar" name="snackbar"></div>
+                <td>';
+
+                generarRows();
+
+            echo '</tr><div id="snackbar" name="snackbar"></div>
 
         </table>';
 
-                generarRows();
+                
             }
             else {
                 echo '<h2 style="margin: auto; width: auto">Por favor inicia sesion para mostrar tus pedidos</h2>';
