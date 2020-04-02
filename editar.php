@@ -9,6 +9,9 @@ if ($_SESSION["id"] > 0) {
 } else {
     header("Location: login.php");
 }
+if($_SESSION["rol"] != 2) {
+    header("Location: clientes/home.php");
+}
 
 $id = $_GET['id'];
 

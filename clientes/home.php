@@ -324,4 +324,14 @@ function generarTarjetas()
 
 </body>
 
+<?php
+if(isset($_GET["pedido"])) {
+    if($_GET["pedido"]==1) {
+        echo "<script>myFunction(\"¡El pedido se ha generado exitosamente!\");</script>";
+    }
+    else if ($_GET["pedido"]==2) {
+        echo "<script>myFunction(\"El pedido ha sido cancelado y su informacion eliminada exitosamente\");</script>";
+    }
+}
+?>
 </html>

@@ -132,23 +132,31 @@ require "lista_pedidos.php";
 
     <br>
     <div id="tabla-admins">
-        <table>
-            <tr>
-                <td colspan="8" style="text-align: center;"><br> Pedidos <br><br></td>
-            </tr>
+        
+            
 
             <!-- Nombres de columnas -->
-            <tr>
+
+            <?php if($_SESSION["id"]!=1){ 
+                echo '<table><tr>
+                <td colspan="8" style="text-align: center;"><br> Pedidos <br><br></td>
+            </tr><tr>
                 <td><a>ID</a></td>
                 <td><a>Fecha</a></td>
                 <td><a>Status</a></td>
                 <td>
-            </tr>
+            </tr><div id="snackbar" name="snackbar"></div>
 
-            <?php generarRows(); ?>
-            <div id="snackbar" name="snackbar"></div>
+        </table>';
 
-        </table>
+                generarRows();
+            }
+            else {
+                echo '<h2 style="margin: auto; width: auto">Por favor inicia sesion para mostrar tus pedidos</h2>';
+            }
+            ?>
+
+            
     </div>
 </body>
 

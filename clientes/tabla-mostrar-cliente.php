@@ -1,6 +1,11 @@
 <?php
 session_start();
 require "lista_cliente.php";
+
+if($_SESSION["rol"] == 1 || $_SESSION["rol"] == 4) {
+    header("Location: home.php");
+}
+
 ?>
 
 <html>
@@ -136,7 +141,7 @@ require "lista_cliente.php";
     <div id="tabla-admins">
         <table>
             <tr>
-                <td colspan="8" style="text-align: center;"><br> Pedidos <br><br></td>
+                <td colspan="8" style="text-align: center;"><br> Clientes <br><br></td>
             </tr>
 
             <!-- Nombres de columnas -->

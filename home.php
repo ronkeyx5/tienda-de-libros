@@ -2,11 +2,14 @@
 session_start();
 
 error_reporting(0);
-if($_SESSION["id"] > 1) {
-    }
-else {
+if ($_SESSION["id"] > 1) {
+} else {
     header("Location: clientes/home.php");
-    }
+}
+
+if ($_SESSION["rol"] < 2) {
+    header("Location: clientes/home.php");
+}
 ?>
 
 <html>
@@ -14,7 +17,7 @@ else {
 <head>
     <title>Inicio</title>
     <style>
-    #backButton {
+        #backButton {
             text-decoration: none;
             border-radius: 8px;
             text-align: end;
@@ -26,11 +29,11 @@ else {
             display: inline-block;
         }
 
-    #backButton:hover {
-        background: #696969;
-    }
+        #backButton:hover {
+            background: #696969;
+        }
 
-    #cerrarButton {
+        #cerrarButton {
             text-decoration: none;
             border-radius: 8px;
             text-align: end;
@@ -42,24 +45,26 @@ else {
             display: inline-block;
         }
 
-    #cerrarButton:hover {
-        background: #800000;
-    }
-    #header {
-        margin-left: -8px;
-        margin-top: -8px;
-        box-shadow: 5px 2px 10px #888888;
-        margin-bottom: 17px;
-    }
-    body {
-        background-image: url('images/back.jpg');
-        background-size: 100%;
-    }
+        #cerrarButton:hover {
+            background: #800000;
+        }
+
+        #header {
+            margin-left: -8px;
+            margin-top: -8px;
+            box-shadow: 5px 2px 10px #888888;
+            margin-bottom: 17px;
+        }
+
+        body {
+            background-image: url('images/backf.jpg');
+            background-size: 100%;
+        }
     </style>
 </head>
 
 <body>
-    <iframe id="header" src="header.php" height="100" width="101.2%" frameBorder="0" scrolling="no" ></iframe>
+    <iframe id="header" src="header.php" height="100" width="101.2%" frameBorder="0" scrolling="no"></iframe>
 </body>
 
 </html>

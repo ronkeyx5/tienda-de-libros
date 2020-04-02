@@ -9,6 +9,10 @@ else {
     header("Location: ../login.php");
     }
 
+    if($_SESSION["rol"] == 1 || $_SESSION["rol"] == 3) {
+    header("Location: ../clientes/home.php");
+}
+
 require "../conecta.php";
 
 $id = $_POST["id"];

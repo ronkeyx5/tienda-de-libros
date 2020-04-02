@@ -29,10 +29,16 @@ function generarRows() {
         case "1": $rol="Usuario";
             break;
 
-        case "2": $rol="Administrador";
+        case "2": $rol="Administrador Completo";
             break;
 
-        default: $rol="Error";
+            case "3": $rol="Administrador Informacion";
+        break;
+
+        case "4": $rol="Administrador Inventario";
+            break;
+
+            default: $rol="Error";
             break;
     }
 
@@ -51,7 +57,6 @@ function generarRows() {
             </div>
         </td>
     </tr>";
-
+    
     }
 }
-?>

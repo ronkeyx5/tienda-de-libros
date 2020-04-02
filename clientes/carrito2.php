@@ -27,14 +27,16 @@ function mostrarProductos()
 
             $nombre              = mysqli_result($res2, 0, "nombre");
             $codigo              = mysqli_result($res2, 0, "codigo");
-            $autor              = mysqli_result($res2, $i, "Autor");
-            $descripcion1         = mysqli_result($res2, $i, "descripcion");
+            $autor              = mysqli_result($res2, 0, "Autor");
+            $descripcion1         = mysqli_result($res2, 0, "descripcion");
             $descripcion = substr($descripcion1, 0, 200) . "...";
             $costo               = mysqli_result($res2, 0, "costo");
             $archivo             = mysqli_result($res2, 0, "archivo_n");
 
             $total = $cantidad * $costo;
             $total_pedido = $total_pedido + $total;
+
+            $_SESSION["total-pedido"] = $total_pedido;
 
             echo "<tr id=\"" . $productoid . "\" class=\"row\">
                     <td><a>" . $i . "</a></td>
@@ -76,7 +78,7 @@ function mysqli_result($res, $row, $field = 0)
 <html>
 
 <head>
-    <title>Carrito 2/2</title>
+    <title>Carrito 2/4</title>
     <style>
         .total {
             background: #ededed;

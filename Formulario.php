@@ -225,7 +225,9 @@ else {
                     <select name="rol" id="rol" required >
                         <option value="0">Elegir rol</option>
                         <option value="1">Usuario</option>
-                        <option value="2">Administrador</option>
+                        <option value="2">Administrador Completo</option>
+                        <option value="3">Administrador de Informacion y Usuarios</option>
+                        <option value="4">Administrador de Inventario</option>
                     </select><br><br>
                     <input type="file" id="archivo" name="archivo" required><br>
 

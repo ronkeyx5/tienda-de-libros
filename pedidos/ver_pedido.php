@@ -10,6 +10,10 @@ if ($_SESSION["id"] > 0) {
     header("Location: ../login.php");
 }
 
+if($_SESSION["rol"] == 1 || $_SESSION["rol"] == 4) {
+    header("Location: ../clientes/home.php");
+}
+
 $id = $_GET['id'];
 $t = $_GET['t'];
 

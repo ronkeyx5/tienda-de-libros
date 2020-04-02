@@ -1,6 +1,6 @@
 <?php
 define ("HOST",'localhost');
-define ("BD",'progra-internet');
+define ("BD",'minzon');
 define ("USER_BD",'root');
 define ("PASS_BD",'');
 

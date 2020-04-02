@@ -1,1 +1,1 @@
-tienda-de-libros
+Proyecto realizado para la materia de Seminario de Ing de Software I, CUCEI, UDG.

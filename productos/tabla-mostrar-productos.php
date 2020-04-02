@@ -8,6 +8,10 @@ if ($_SESSION["id"] > 0) {
 } else {
     header("Location: ../login.php");
 }
+
+if($_SESSION["rol"] == 1 || $_SESSION["rol"] == 3) {
+    header("Location: ../clientes/home.php");
+}
 ?>
 
 <html>

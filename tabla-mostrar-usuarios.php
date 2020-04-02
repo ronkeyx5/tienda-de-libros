@@ -8,6 +8,9 @@ if ($_SESSION["id"] > 0) {
 } else {
     header("Location: login.php");
 }
+if($_SESSION["rol"] != 2) {
+    header("Location: clientes/home.php");
+}
 ?>
 
 <html>
@@ -189,23 +192,6 @@ if ($_SESSION["id"] > 0) {
 
                 </td>
             </tr>
-
-            <!-- EJEMPLO DE REGISTRO EN TABLA 
-                <tr class="row" >
-                    <td><img src="img/reset.png" class="profile-pic" ></td>
-                    <td><a>1</a></td>
-                    <td><a>Juan Ricardo</a> <a>Becerra Mata</a></td>
-                    <td><a>ronkeyx5@gmail.com</a></td>
-                    <td><a>Administrador</a></td>
-                    <td>
-                        <div>
-                            <a class="button" id="eliminarButton" href="#Eliminar" >Eliminar</a><br><br>
-                            <a class="button" id="editarButton" href="#Editar" >Editar</a><br>
-                            <a class="button" id="verButton" href="#Ver" >Ver</a>
-                        </div>
-                    </td>
-                </tr>
-                <!-- ## AQUI ##-->
 
             <?php generarRows(); ?>
             <div id="snackbar" name="snackbar"></div>

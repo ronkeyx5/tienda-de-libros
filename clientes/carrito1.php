@@ -27,8 +27,8 @@ function mostrarProductos()
 
             $nombre              = mysqli_result($res2, 0, "nombre");
             $codigo              = mysqli_result($res2, 0, "codigo");
-            $autor              = mysqli_result($res2, $i, "Autor");
-            $descripcion1         = mysqli_result($res2, $i, "descripcion");
+            $autor              = mysqli_result($res2, 0, "Autor");
+            $descripcion1         = mysqli_result($res2, 0, "descripcion");
             $descripcion = substr($descripcion1, 0, 200) . "...";
             $costo               = mysqli_result($res2, 0, "costo");
             $archivo             = mysqli_result($res2, 0, "archivo_n");
@@ -38,7 +38,7 @@ function mostrarProductos()
 
             echo "<tr id=\"" . $productoid . "\" class=\"row\">
                     <td><a>" . $i . "</a></td>
-                    <td><input id=\"input".$productoid."\" onchange=\"updateCarrito(".$productoid."); return false;\" value=\"" . $cantidad . "\" type=\"number\" ></td>
+                    <td><input id=\"input" . $productoid . "\" onchange=\"updateCarrito(" . $productoid . "); return false;\" value=\"" . $cantidad . "\" type=\"number\" ></td>
                     <td><img src=\"../productos/archivos/" . $archivo . ".jpg\" class=\"profile-pic\" ></td>
                     <td><a>" . $productoid . "</a></td>
                     <td style=\"word-wrap: break-word; max-width: 150px;\"><a>" . $nombre . "</a>
@@ -56,8 +56,12 @@ function mostrarProductos()
 
 function siguienteButton()
 {
-    if ($_SESSION['carrito'] > 0) {
-        echo "<a class=\"next\" onclick=\"validarCarrito(); return false;\" >Siguiente</a>";
+    if ($_SESSION["id"] == 1 && $_SESSION['carrito'] > 0) {
+        echo "<a class=\"next\" href=\"../auxLogin.php\" >Iniciar Sesion</a>";
+    } else {
+        if ($_SESSION['carrito'] > 0) {
+            echo "<a class=\"next\" onclick=\"validarCarrito(); return false;\" >Siguiente</a>";
+        }
     }
 }
 
@@ -196,6 +200,7 @@ function mysqli_result($res, $row, $field = 0)
                         console.log("Finish POST");
                         $('#' + productoF).hide();
                         myFunction("Producto eliminado con exito");
+                        location.reload(true);
                     },
                     success: function() {
                         console.log("Success POST");
@@ -219,7 +224,7 @@ function mysqli_result($res, $row, $field = 0)
         }
 
         function updateCarrito(productoF) {
-            var cantidadF = $('#input'+productoF).val();
+            var cantidadF = $('#input' + productoF).val();
             console.log(cantidadF);
 
             $.ajax({

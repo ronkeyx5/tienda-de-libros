@@ -35,6 +35,7 @@ $sql = "SELECT * FROM clientes WHERE correo = '" . $correo . "' AND pass = '" . 
 $res = mysqli_query($con, $sql);
 $num = mysqli_num_rows($res);
 
+//Usuario Encontrado
 if ($num != 0) {
     $id = mysqli_result($res, 0, 'id');
     $nombre = mysqli_result($res, 0, 'nombre');
@@ -42,8 +43,18 @@ if ($num != 0) {
     $_SESSION["id"] = $id;
     $_SESSION["nombre"] = $nombre;
     $_SESSION['type'] = 2;
+
+    if(isset($_SESSION["migrarCarrito"])) {
+        $idMigracion = $_SESSION["idMigracion"];
+
+        $sql2 = "UPDATE carrito SET id_cliente='$id' WHERE id_cliente='$idMigracion'";
+        $res2 = mysqli_query($con, $sql2);
+    }
+
     return;
-} else {
+} 
+//Usuario no encontrado
+else {
     $_SESSION["id"] = -1;
 }
 

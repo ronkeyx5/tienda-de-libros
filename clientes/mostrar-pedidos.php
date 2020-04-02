@@ -4,7 +4,7 @@ require "../conecta.php";
 session_start();
 
 error_reporting(0);
-if ($_SESSION["id"] > 0) {
+if ($_SESSION["id"] > 1) {
     //echo $_SESSION["id"];
 } else {
     header("Location: ../login.php");
@@ -212,7 +212,13 @@ function mostrarProductos()
                         <td class="total"><a>Total</a></td>
                     </tr>
 
-                    <?php mostrarProductos(); ?>
+                    <?php if($_SESSION["id"]!=1){ 
+                        mostrarProductos();
+                    }
+                    else {
+                        echo "Por favor inicia sesion para mostrar tus pedidos";
+                    }
+                    ?>
 
                 </table>
             </div>

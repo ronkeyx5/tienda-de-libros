@@ -2,11 +2,15 @@
 session_start();
 require "lista_pedidos.php";
 
-error_reporting(0);
+//error_reporting(0);
 if ($_SESSION["id"] > 0) {
     //echo $_SESSION["id"];
 } else {
     header("Location: ../login.php");
+}
+
+if($_SESSION["rol"] == 1 || $_SESSION["rol"] == 4) {
+    header("Location: ../clientes/home.php");
 }
 ?>
 
@@ -172,16 +176,22 @@ if ($_SESSION["id"] > 0) {
     <div id="tabla-admins">
         <table>
             <tr>
-                <td colspan="8" style="text-align: center;"><br> Pedidos <br><br></td>
+                <td colspan="12" style="text-align: center;"><br> Pedidos <br><br></td>
             </tr>
 
             <!-- Nombres de columnas -->
             <tr>
                 <td><a>ID</a></td>
-                <td><a>Fecha</a></td>
-                <td><a>ID Usuario</a></td>
+                <td><a>Fecha<br>de pedido</a></td>
+                <td><a>ID<br>Cobro</a></td>
                 <td><a>Nombre</a></td>
-                <td><a>Status</a></td>
+                <td><a>Estado</a></td>
+                <td><a>Fecha<br>de entrega</a></td>
+                <td><a>Numero de<br>rastreo</a></td>
+                <td><a>Domicilio</a></td>
+                <td><a>Metodo</a></td>
+                <td><a>Paqueteria</a></td>
+                <td><a>Total</a></td>
                 <td>
             </tr>
 

@@ -7,10 +7,10 @@ $con = conecta();
 $id = $_GET['id'];
 $status = $_GET['status'];
 
-if($status==0) {
-    $sql = "UPDATE pedidos SET status='1' WHERE id='$id'";
+if($status=="Procesando") {
+    $sql = "UPDATE envio SET estado=\"Entregado\" WHERE id_transaccion='$id'";
 } else{
-    $sql = "UPDATE pedidos SET status='0' WHERE id='$id'";
+    $sql = "UPDATE envio SET estado=\"Procesando\" WHERE id_transaccion='$id'";
 }
 
 $res = mysqli_query($con, $sql);
